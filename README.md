@@ -1,4 +1,4 @@
-## What it is?
+## What is this?
 Its my version of https://github.com/soanvig/brave-bin. I want my own version to have control over the updating process. I made a bash script out of the fish version in the original repo. This works togheter with my xbps-update script. (a [bash script](https://github.com/glubbfreund/dots-linux/blob/master/.local/bin/xbps-update) in my dotfiles). Thanks again to the original author. Great work. 
 
 ## Auto updates
