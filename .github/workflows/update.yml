@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.ref == 'refs/heads/master' }}
     env:
-      GH_TOKEN: ${{ github.token }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v3
       - run: sudo apt update -y
@@ -19,3 +19,4 @@ jobs:
       - uses: EndBug/add-and-commit@v9
         with:
           message: 'Update version'
+          token: ${{ secrets.PAT_TOKEN }}
