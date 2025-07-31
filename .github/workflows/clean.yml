@@ -13,4 +13,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          gh run ls --all --limit 40 --workflow "update" --json databaseId -q ".[].databaseId" | xargs -n1 gh run delete
+          gh run ls --all --limit 50 --workflow "update" --json databaseId -q ".[].databaseId" | xargs -n1 gh run delete
