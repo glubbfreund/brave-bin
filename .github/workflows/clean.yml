@@ -13,9 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          gh run ls --all --limit 50 \
-            --workflow "update" \
-            --workflow "cleanup" \
+          gh run ls --all --limit 50 
             --json databaseId \
             -q ".[].databaseId" \
           | xargs -n1 gh run delete
