@@ -21,5 +21,5 @@ jobs:
             gh run list --all --limit 50 \
               --workflow "$wf" \
               --json databaseId \
-              -q ".[].databaseId"
+              --jq ".[] | select(.databaseId != ($CURRENT_RUN_ID | tonumber)) | .databaseId"
           done | xargs -r -n1 gh run delete
