@@ -17,9 +17,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          gh run list --all --limit 200 \
-            --workflow "update" \
-            --workflow "cleanup" \
-            --json databaseId \
-            --jq ".[] | select(.databaseId != ($CURRENT_RUN_ID | tonumber)) | .databaseId" \
-          | xargs -n1 gh run delete --yes
+          for wf in update cleanup; do
+            gh run list --all --limit 50 \
+              --workflow "$wf" \
+              --json databaseId \
+              -q ".[].databaseId"
+          done | xargs -r -n1 gh run delete
